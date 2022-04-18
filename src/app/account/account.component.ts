@@ -13,15 +13,22 @@ export class AccountComponent implements OnInit {
 
   accounts:Account[];
   user:User;
+  repo:Repo;
 
-
-  constructor(accountService:AccountService, private http:HttpClient) { }
+  constructor(accountService:AccountService, private http:HttpClient) { 
     this.accounts = accountService.getAccounts();
+  }
 
   ngOnInit() {
     interface ApiResponse{
       user:string;
       repo:string;
+    }
+    this.http.get<ApiResponse>("http://quotes.stormconsultancy.co.uk/random.json").subscribe(data=>{
+      // Succesful API request
+      this.account = new Account(data.user, data.repo)
+    })  
+  
   }
 
 }
