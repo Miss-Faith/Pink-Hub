@@ -9,21 +9,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./account-form.component.css']
 })
 export class AccountFormComponent implements OnInit {
-
-  userData: User;
-  myData: {};
-  userRepoData: User[];
-  searchTerm: string = '';
   
-  constructor(private router: Router, private accountService: AccountService) { }
+  searchInfo = new Search('');
+  @Output() getName = new EventEmitter<Search>();
+
+  getUserData(){
+    this.getName.emit(data.value.searchTerm);
+    console.log(data.value.searchTerm)
+    data.reset();
+}
+
+  constructor() { }
 
   ngOnInit(): void { }
-
-  getUserData() {
-    this.accountService.getUserData(this.searchTerm).then((data) => {
-      this.userData = data;
-      this.router.navigate(['/searchUser', this.userData.login]);
-    });
-  }
 
 }

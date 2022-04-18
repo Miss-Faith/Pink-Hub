@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <h2 class="text-center">Search a User</h2>
   <hr>
-  <form  #searchForm='ngForm' (ngSubmit)="searchForm.form.valid && getUserData()">
+  <form  #accountForm='ngForm' (ngSubmit)="getUserData()">
     <div class="form-group">
 
       <label for="name">User Name</label>
-      <input type="text" class="searchInput form-control" placeholder="User Name" [(ngModel)]="searchTerm"
+      <input type="text" class="form-control" placeholder="User Name" [(ngModel)]="searchTerm"
       name="searchTerm">
 
     </div>
