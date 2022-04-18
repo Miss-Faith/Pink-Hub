@@ -4,9 +4,9 @@
   <form  #accountForm='ngForm' (ngSubmit)="getUserData()">
     <div class="form-group">
 
-      <label for="name">User Name</label>
-      <input type="text" class="form-control" placeholder="User Name" [(ngModel)]="searchTerm"
-      name="searchTerm">
+      <label for="searchterm">User Name</label>
+      <input type="text" class="form-control" placeholder="User Name" [(ngModel)]="searchInfo.searchterm"
+      name="searchterm" #searchterm='ngModel'>
 
     </div>
 

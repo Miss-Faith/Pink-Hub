@@ -1,18 +1,7 @@
 <div class="container">
   <div class="wrapper">
     <div class="mt-3">
-      <form
-        class="text-center"
-        #searchForm="ngForm"
-        (ngSubmit)="searchForm.form.valid && getUserData()"
-      >
-        <div class="input-group">
-          <input type="text" placeholder="Search User" [(ngModel)]="userName" name="userName"
-          />
-
-          <button class="btn searchBtn">Search</button>
-        </div>
-      </form>
+      <app-account-form (getName)='findUser($event)'></app-account-form>
     </div>
     <div>
       <div class="user-details-wrapper">
@@ -28,19 +17,11 @@
             {{ userData?.bio }}
           </div>
           <div class="user_info">
-            <div
-              class="info"
-              ngbTooltip="Followers"
-              tooltipClass="my-custom-class"
-            >
-              <img src="../../../assets/img/followers.svg" alt="" />
+            <div class="info" ngbTooltip="Followers" tooltipClass="my-custom-class">
               <span>{{ userData?.followers }}</span>
             </div>
             <div
-              class="info"
-              ngbTooltip="Followering"
-              tooltipClass="my-custom-class"
-            >
+              class="info" ngbTooltip="Followering" tooltipClass="my-custom-class">
               <img src="../../../assets/img/following.svg" alt="" />
               <span>{{ userData?.following }}</span>
             </div>
@@ -50,7 +31,6 @@
         <div class="user_repoData">
           <h4>Total Repositories</h4>
           <div class="repoData">
-            <img src="../../../assets/img/repository.svg" alt="" />
             <span>{{ userData?.public_repos }}</span>
           </div>
         </div>
@@ -59,15 +39,10 @@
       <div class="repo-wrapper">
         <div class="repo_wrapper text-center">
           <div
-            class="repo-container"
-            *ngFor="let repo of repoData"
-            appHighlightHover
-          >
+            class="repo-container" *ngFor="let repo of repoData">
             <div class="repo_name">{{ repo.name }}</div>
             <div class="repo_description">
-              <p>
-                {{ repo.description }}
-              </p>
+              <p>{{ repo.description }}</p>
             </div>
             <div class="repo_info">
               <div class="info">

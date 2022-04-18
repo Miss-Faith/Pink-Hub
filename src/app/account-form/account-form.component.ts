@@ -12,8 +12,8 @@ export class AccountFormComponent implements OnInit {
   @Output() getName = new EventEmitter<Search>();
 
   getUserData(){
-    this.getName.emit(data.value.searchTerm);
-    console.log(data.value.searchTerm)
+    this.getName.emit(data.value.searchterm);
+    console.log(data.value.searchterm)
     data.reset();
 }
 
