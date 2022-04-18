@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user-class/user';
 import { Repo } from '../repo-class/repo';
 import { AccountService } from '../account-service/account.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class AccountComponent implements OnInit {
   userRepoData: User[];
   searchTerm: string = '';
 
-  constructor(private router: ActivatedRoute, private accountService: AccountService){}
+  constructor(private router: Router, private accountService: AccountService){}
   
   ngOnInit(): void {}
   
