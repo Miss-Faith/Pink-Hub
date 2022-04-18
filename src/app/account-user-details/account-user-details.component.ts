@@ -10,32 +10,34 @@ import { User } from '../user-class/user';
   styleUrls: ['./account-user-details.component.css']
 })
 export class AccountUserDetailsComponent implements OnInit {
-  userName: string = '';
-  userNameLink: any;
-  userData: User;
-  repoData: Repo[];
+  public searchMe = 'Miss-Faith';
+  public githubUser: string;
+
+  users: User ;
+    repository: Repository;
+    public searchRepo: string;
+    public resultCount = 12;
+
+
+  findUser(username) {
+    this.githubUser = '';
+    this.searchMe  = username;
+    this.ngOnInit();
+  }
 
   constructor(private router: ActivatedRoute, private accountService: AccountService) { }
 
-  getUserData() {
-    this.accountService.getUserData(this.userName).then((data) => {
-      this.userData = data;
-    });
-
-    this.accountService.getUserRepoData(this.userName).then((data) => {
-      this.repoData = data;
-    });
-  }
-
   ngOnInit() {
-    this.userName = 'Faith';
-    this.userNameLink = this.router.snapshot.paramMap.get('login');
+    this.githubUserRequest.githubUser(this.searchMe);
+    this.users = this.githubUserRequest.users;
+    this.userRepos.gitUserRepos(this.searchMe);
+    console.log(this.userRepos);
+}
 
-    this.accountService.getUserData(this.userNameLink).then((data) => {
-      this.userData = data;
-    this.accountService.getUserRepoData(this.userNameLink).then((data) => {
-      this.repoData = data;
-      });
-    });
+
+  searchRepos() {
+      this.searchRepo = '';
+      this.resultCount = 10;
+
   }
 }
