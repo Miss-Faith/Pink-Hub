@@ -1,5 +1,6 @@
 export class User {
   constructor(
+    public name:string,
     public bio: any,
     public public_repos: number,
     public followers: any,

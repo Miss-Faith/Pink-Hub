@@ -10,24 +10,29 @@ import { User } from '../user-class/user';
 })
 export class AccountRepoDetailsComponent implements OnInit {
 
-  searchTerm: string = '';
-  repoData: Repo[];
-  arrayData: any;
-  constructor(private accountService: AccountService) {}
+  repository: Repository;
+    public searchRepo: string;
+    public resultCount = 12;
 
-  ngOnInit(): void {}
+    searchRepos() {
+        this.searchRepo = '';
+        this.resultCount = 10;
+        this.getDataFunction();
 
-  getUserData() {
+    }
 
-    this.accountService.getRepoData(this.searchTerm).then((data) => {
-      this.arrayData = Object.entries(data);
-      let repositoryData = this.arrayData[2];
+    constructor(public gitRepoRequest: SearchRequestService ) { }
 
-      let convertRepositoryData =
-        repositoryData[Object.keys(repositoryData)[1]];
-
-      this.repoData = convertRepositoryData;
-    });
-    this.searchTerm = '';
+  ngOnInit() {
+        this.resultCount = 5;
+      this.gitRepoRequest.gitRepos(this.searchRepo);
   }
+
+
+      getDataFunction() {
+          this.gitRepoRequest.gitRepos(this.searchRepo);
+
+      }
+
+
 }

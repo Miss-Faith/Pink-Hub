@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { AccountService } from '../account-service/account.service';
 import { Repo } from '../repo-class/repo';
 import { User } from '../user-class/user';
 
