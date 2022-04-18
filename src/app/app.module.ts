@@ -14,13 +14,14 @@ import { AccountService } from './account-service/account.service';
   declarations: [
     AppComponent,
     AccountComponent,
-    AccountFormComponent,
-    HttpClientModule
+    AccountFormComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

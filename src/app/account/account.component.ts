@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user'
+import { HttpClient } from '@angular/common/http';
+import { User } from '../user-class/user';
 import { Repository } from '../repository'
 
 @Component({
@@ -9,10 +10,13 @@ import { Repository } from '../repository'
 })
 export class AccountComponent implements OnInit {
 
+  Accounts:Account[];
+  user:User;
+
   addNewAccount(account){
     this.Accounts.push(account)
 
-   constructor() { }
+   constructor(accountService:AccountService, private http:HttpClient) { }
 
   ngOnInit(): void {
   }
