@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../user-class/user';
 import { Repo } from '../repo-class/repo';
 import { AccountService } from '../account-service/account.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -11,13 +12,15 @@ import { AccountService } from '../account-service/account.service';
 })
 export class AccountComponent implements OnInit {
 
-  accounts:Account[];
-  user:User;
-  repo:Repo;
+  userName: string = '';
+  isError: boolean = false;
+  userNameLink: any;
+  userData: Users;
+  showUserDetails: boolean = false;
+  repoData: Repo[];
 
-  constructor(accountService:AccountService, private http:HttpClient) { 
-    this.accounts = accountService.getAccounts();
-  }
+  constructor(private router: ActivatedRoute, private accountService: AccountService){}
+  
 
   ngOnInit() {
     interface ApiResponse{
