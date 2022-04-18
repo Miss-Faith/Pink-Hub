@@ -1,1 +1,27 @@
-<p>account-form works!</p>
+<div class="container-fluid">
+  <h2 class="text-center">Search a User</h2>
+  <hr>
+  <form #accountForm='ngForm'>
+    <div class="form-group">
+
+      <label for="name">User Name</label>
+      <input type="text" required class="form-control" id="name" placeholder="User Name" [(ngModel)]="newAccount.user">
+
+    </div>
+
+    <button class="btn btn-success" type="submit">Search User</button>
+
+  </form>
+
+  <form>
+    <div class="form-group">
+
+      <label for="repo">User Name</label>
+      <input type="text" required class="form-control" id="repo" placeholder="Repo Name" [(ngModel)]="newAccount.repository">
+
+    </div>
+
+    <button class="btn btn-success" type="submit">Search Repos</button>
+
+  </form>
+</div>
