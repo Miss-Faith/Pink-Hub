@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user-class/user';
-import { Repo } from '../repo-class/repo';
 import { AccountService } from '../account-service/account.service';
 import { Router } from '@angular/router';
 
@@ -21,10 +20,4 @@ export class AccountComponent implements OnInit {
   
   ngOnInit(): void {}
   
-  getUserData() {
-    this.accountService.getUserData(this.searchTerm).then((data) => {
-      this.userData = data;
-      this.router.navigate(['/searchUser', this.userData.login]);
-    });
   }
-}

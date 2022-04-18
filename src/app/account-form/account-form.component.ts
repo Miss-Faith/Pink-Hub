@@ -1,4 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AccountService } from '../account-service/account.service';
+import { User } from '../user-class/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account-form',
@@ -6,17 +9,21 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./account-form.component.css']
 })
 export class AccountFormComponent implements OnInit {
-  
-  // newAccount = new Account("","");
-  // @Output() addAccount = new EventEmitter<Account>();
-  
-  //   submitGoal(){
-  // this.addGoal.emit(this.newAccount);
-  //   }
 
-  constructor() { }
+  userData: User;
+  myData: {};
+  userRepoData: User[];
+  searchTerm: string = '';
+  
+  constructor(private router: Router, private accountService: AccountService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  getUserData() {
+    this.accountService.getUserData(this.searchTerm).then((data) => {
+      this.userData = data;
+      this.router.navigate(['/searchUser', this.userData.login]);
+    });
   }
 
 }
