@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../user-class/user';
-import { Repository } from '../repository'
+import { Repo } from '../repo-class/repo';
+import { AccountService } from '../account-service/account.service';
 
 @Component({
   selector: 'app-account',
@@ -10,15 +11,17 @@ import { Repository } from '../repository'
 })
 export class AccountComponent implements OnInit {
 
-  Accounts:Account[];
+  accounts:Account[];
   user:User;
 
-  addNewAccount(account){
-    this.Accounts.push(account)
 
-   constructor(accountService:AccountService, private http:HttpClient) { }
+  constructor(accountService:AccountService, private http:HttpClient) { }
+    this.accounts = accountService.getAccounts();
 
-  ngOnInit(): void {
+  ngOnInit() {
+    interface ApiResponse{
+      user:string;
+      repo:string;
   }
 
 }
