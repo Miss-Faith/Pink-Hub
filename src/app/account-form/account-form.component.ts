@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-account-form',
@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-form.component.css']
 })
 export class AccountFormComponent implements OnInit {
+  
+  newAccount = new Account("","");
+  @Output() addGoal = new EventEmitter<Account>();
+  
+    submitGoal(){
+  this.addGoal.emit(this.newAccount);
+    }
 
   constructor() { }
 

@@ -9,6 +9,9 @@ import { Repository } from '../repository'
 })
 export class AccountComponent implements OnInit {
 
+  addNewAccount(account){
+    this.Accounts.push(account)
+
    constructor() { }
 
   ngOnInit(): void {

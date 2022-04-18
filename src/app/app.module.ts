@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
 import { AccountFormComponent } from './account-form/account-form.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AccountService } from './account-service/account.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountComponent,
-    AccountFormComponent
+    AccountFormComponent,
+    HttpClientModule
   ],
   imports: [
     BrowserModule,
