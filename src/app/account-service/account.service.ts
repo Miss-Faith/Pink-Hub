@@ -8,27 +8,27 @@ import { User } from '../user-class/user';
   providedIn: 'root'
 })
 export class AccountService {
+  token: string = environment.accessToken;
   
   constructor(private http:HttpClient) { }
 
   getUserData(username: string) {
     return this.http
       .get<User>(
-        //`https://api.github.com/users/${username}?access_token=${this.token}`
         `https://api.github.com/users/${username}`
-      );
+      ).toPromise();
   }
 
   getUserRepoData(username: string) {
     return this.http
       .get<Repo[]>(
         ` https://api.github.com/users/${username}/repos?order=created&sort=asc?access_token=${this.token}`
-      );
+      ).toPromise();
   }
 
   getRepoData(searchterm: string) {
     return this.http
       .get<Repo[]>(`https://api.github.com/search/repositories?q=${searchterm}`
-      );
+      ).toPromise();
   }
 }
