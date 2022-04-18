@@ -1,5 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { AccountService } from '../account-service/account.service';
 import {Search} from '../search';
+
 
 @Component({
   selector: 'app-account-form',
@@ -7,17 +10,22 @@ import {Search} from '../search';
   styleUrls: ['./account-form.component.css']
 })
 export class AccountFormComponent implements OnInit {
-  
+  userData: User;
+  myData: {};
+  userRepoData: User[];
+  searchterm: string = '';
+
   searchInfo = new Search('');
   @Output() getName = new EventEmitter<Search>();
 
   getUserData(){
-    this.getName.emit(data.value.searchterm);
-    console.log(data.value.searchterm)
-    data.reset();
+    this.accountService.getUserData(this.searchterm).then((data) => {
+      this.userData = data;
+      this.router.navigate(['/searchUser', this.userData.login]);
+    });
 }
 
-  constructor() { }
+  constructor(private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void { }
 
