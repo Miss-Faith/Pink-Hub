@@ -19,7 +19,6 @@ export class AccountComponent implements OnInit {
 
   constructor(private router: ActivatedRoute, private accountService: AccountService){}
   
-
   ngOnInit(): void {}
   
   getUserData() {

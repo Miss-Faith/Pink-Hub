@@ -9,12 +9,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AccountService } from './account-service/account.service';
+import { AccountUserDetailsComponent } from './account-user-details/account-user-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountComponent,
-    AccountFormComponent
+    AccountFormComponent,
+    AccountUserDetailsComponent
     
   ],
   imports: [
