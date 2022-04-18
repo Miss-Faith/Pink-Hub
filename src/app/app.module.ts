@@ -10,13 +10,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AccountService } from './account-service/account.service';
 import { AccountUserDetailsComponent } from './account-user-details/account-user-details.component';
+import { AccountRepoDetailsComponent } from './account-repo-details/account-repo-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountComponent,
     AccountFormComponent,
-    AccountUserDetailsComponent
+    AccountUserDetailsComponent,
+    AccountRepoDetailsComponent
     
   ],
   imports: [

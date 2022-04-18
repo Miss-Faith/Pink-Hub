@@ -7,12 +7,12 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class AccountFormComponent implements OnInit {
   
-  newAccount = new Account("","");
-  @Output() addGoal = new EventEmitter<Account>();
+  // newAccount = new Account("","");
+  // @Output() addAccount = new EventEmitter<Account>();
   
-    submitGoal(){
-  this.addGoal.emit(this.newAccount);
-    }
+  //   submitGoal(){
+  // this.addGoal.emit(this.newAccount);
+  //   }
 
   constructor() { }
 
