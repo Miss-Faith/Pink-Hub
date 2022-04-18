@@ -1,7 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AccountService } from '../account-service/account.service';
-import { User } from '../user-class/user';
-import { Router } from '@angular/router';
+import {Search} from '../search';
 
 @Component({
   selector: 'app-account-form',
