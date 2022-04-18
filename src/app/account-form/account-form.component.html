@@ -1,27 +1,16 @@
 <div class="container-fluid">
   <h2 class="text-center">Search a User</h2>
   <hr>
-  <form  #accountForm='ngForm' (ngSubmit)="accountForm.form.valid && getUserData()">
+  <form  #searchForm='ngForm' (ngSubmit)="searchForm.form.valid && getUserData()">
     <div class="form-group">
 
       <label for="name">User Name</label>
-      <input type="text" required class="form-control" id="name" placeholder="User Name">
+      <input type="text" class="searchInput form-control" placeholder="User Name" [(ngModel)]="searchTerm"
+      name="searchTerm">
 
     </div>
 
     <button class="btn btn-success" type="submit">Search User</button>
-
-  </form>
-
-  <form #accountForm='ngForm'>
-    <div class="form-group">
-
-      <label for="repo">User Name</label>
-      <input type="text" required class="form-control" id="repo" placeholder="Repo Name">
-
-    </div>
-
-    <button class="btn btn-success" type="submit">Search Repos</button>
 
   </form>
 </div>
