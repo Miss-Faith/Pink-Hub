@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../account-service/account.service';
 import { Repo } from '../repo-class/repo';
-import { User } from '../user-class/user';
 
 @Component({
   selector: 'app-account-repo-details',
@@ -14,25 +13,24 @@ export class AccountRepoDetailsComponent implements OnInit {
   public searchRepo: string;
   public resultCount = 12;
 
-    searchRepos() {
-        this.searchRepo = '';
-        this.resultCount = 10;
-        this.getDataFunction();
+  searchRepos() {
+    this.searchRepo = '';
+    this.resultCount = 10;
+    this.getDataFunction();
 
-    }
+  }
 
     constructor(public gitRepoRequest: AccountService ) { }
 
   ngOnInit() {
-        this.resultCount = 5;
-      this.gitRepoRequest.gitRepos(this.searchRepo);
+    this.resultCount = 5;
+    this.gitRepoRequest.gitRepos(this.searchRepo);
   }
 
 
-      getDataFunction() {
-          this.gitRepoRequest.gitRepos(this.searchRepo);
-
-      }
+  getDataFunction() {
+    this.gitRepoRequest.gitRepos(this.searchRepo);
+  }
 
 
 }
