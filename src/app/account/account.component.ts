@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user-class/user';
 import { AccountService } from '../account-service/account.service';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,13 +10,45 @@ import { Router } from '@angular/router';
 })
 export class AccountComponent implements OnInit {
 
-  userData: User;
-  myData: {};
-  userRepoData: User[];
-  searchTerm: string = '';
+  user: User;
+  repo: any;
 
-  constructor(private router: Router, private accountService: AccountService){}
+  // userData: User;
+  // myData: {};
+  // userRepoData: User[];
+  // searchTerm: string = '';
+
+  constructor(private accountService: AccountService){}
   
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getUserDetails('Miss-Faith');
+    this.getRepoDetails('NMiss-Faith');
+  }
   
+  //user details
+  getUserDetails(githubUsername: string) {
+    this.accountService.getUserResponse(githubUsername).then(
+      (response) => {
+        this.user = this.accountService.getUserDetails;
+      },
+      (error) => {
+        console.log(error);
+      }
+    ); 
+  }
+
+
+  //user repositories
+  getRepoDetails(githubUsername: string) {
+    this.accountService.getRepoResponse(githubUsername).then(
+      (response) => {
+        this.repo = this.accountService.getRepoDetails;
+        console.log(this.repo);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
   }

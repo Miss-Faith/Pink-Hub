@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Tracing } from 'trace_events';
 import { AccountService } from '../account-service/account.service';
 import { Repo } from '../repo-class/repo';
 
