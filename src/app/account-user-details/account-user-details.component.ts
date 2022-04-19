@@ -9,32 +9,47 @@ import { AccountService } from '../account-service/account.service';
 })
 export class AccountUserDetailsComponent implements OnInit {
   public searchMe = 'Miss-Faith';
-   public githubUser: string;
+  public githubUser: string;
 
-    users: User ;
-    repos: Repo;
-    public searchRepo: string;
-    public resultCount = 0;
+  user: User;
+  repo: Repo;
+
 
     findUser(username) {
-        this.githubUser = '';
-        this.searchMe  = username;
-        this.ngOnInit();
+      this.githubUser = '';
+      this.ngOnInit();
     }
 
 
-  constructor(public githubUserRequest: AccountService, public userRepos: AccountService) { }
+  constructor(public accountService: AccountService) { }
 
   ngOnInit() {
     this.githubUserRequest.githubUser(this.searchMe);
-    this.users = this.githubUserRequest.users;
     this.userRepos.gitUserRepos(this.searchMe);
-    console.log(this.userRepos);
+   
+   //user details
+   getUserDetails(githubUsername: string) {
+    this.repositoryUserService.getUserResponse(githubUsername).then(
+      (response) => {
+        this.user = this.repositoryUserService.getUserDetails;
+      },
+      (error) => {
+        console.log(error);
+      }
+    ); 
   }
 
 
-  searchRepos() {
-    this.searchRepo = '';
-    this.resultCount = 0;
+  //user repositories
+  getUserRepositories(githubUsername: string) {
+    this.repositoryUserService.getRepositoryResponse(githubUsername).then(
+      (response) => {
+        this.repositories = this.repositoryUserService.getRepositoryDetails;
+        console.log(this.repositories);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
