@@ -16,7 +16,7 @@ export class AccountService {
     this.getUserDetails = new User('','',0,'','',new Date(),'','','','','');
     this.getRepoDetails = new Repo('','','','',0,'',new Date());
 }
-  githubUser(searchName: string) {
+  githubUser(githubUsername: string) {
     interface ApiUserResponse {
       name: string;
       bio:string;
@@ -34,7 +34,7 @@ export class AccountService {
     }
 
   let userPromise = new Promise<void>((resolve, reject) => {
-    this.http.get<ApiUserResponse>('https://api.github.com/' + searchName + '/?access_token=' + environment.myApi).toPromise().then(response => {
+    this.http.get<ApiUserResponse>('https://api.github.com/' + githubUsername + '/?access_token=' + environment.myApi).toPromise().then(response => {
       this.getUserDetails =response;
       resolve();
     },
@@ -46,7 +46,7 @@ export class AccountService {
     return userPromise;
   }
 
-  gitUserRepos(searchRepo: string) {
+  gitUserRepos(githubUsername: string) {
     interface ApiRepoResponse {
       name: string;
       html_url:string;
@@ -58,7 +58,7 @@ export class AccountService {
     }
 
   let repoPromise = new Promise<void>((resolve, reject) => {
-    this.http.get<ApiRepoResponse>('https://api.github.com/users/' + searchRepo + '/repos?order=created&sort=asc?access_token=' + environment.myApi).toPromise().then(response => {
+    this.http.get<ApiRepoResponse>('https://api.github.com/users/' + githubUsername + '/repos?order=created&sort=asc?access_token=' + environment.myApi).toPromise().then(response => {
       this.getRepoDetails = response;
         resolve();
       }, error => {

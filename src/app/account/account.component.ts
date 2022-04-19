@@ -27,7 +27,7 @@ export class AccountComponent implements OnInit {
   
   //user details
   getUserDetails(githubUsername: string) {
-    this.accountService.getUserResponse(githubUsername).then(
+    this.accountService.githubUser(githubUsername).then(
       (response) => {
         this.user = this.accountService.getUserDetails;
       },
@@ -40,7 +40,7 @@ export class AccountComponent implements OnInit {
 
   //user repositories
   getRepoDetails(githubUsername: string) {
-    this.accountService.getRepoResponse(githubUsername).then(
+    this.accountService.gitUserRepos(githubUsername).then(
       (response) => {
         this.repo = this.accountService.getRepoDetails;
         console.log(this.repo);
