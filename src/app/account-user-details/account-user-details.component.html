@@ -1,24 +1,18 @@
 <div class="container">
-  <div class="row ">
-    <div class="col-md-12">
-      <app-account-form (getName)='searchGithubuser()'></app-account-form>
-    </div>
-  </div>
-
   <div class="row">
     <div class="col-md-5">
-        <div class="card">
-            <img class="card-img-top" [src]="user?.avatar_url" alt="My Image">
-            <div class="card-body text-center">
-              <p class="card-text">Name:<span> {{user?.name}}</span></p>
-              <p>Username:<span> {{user?.login}}</span></p>
-              <p>Joined on: <span class="badge rounded-pill bg-warning text-dark">{{user?.created_at|date}}</span></p>
-              <div class="follow">
-                <p><i class="fas fa-user"></i><span>{{user?.followers}}</span> Followers</p>
-                <p><i class="fas fa-user"></i><span>{{user?.following}}</span> Following</p>
-              </div>
-            </div>
+      <div class="card">
+        <img class="card-img-top" [src]="user?.avatar_url" alt="My Image">
+        <div class="card-body text-center">
+          <p class="card-text">Name:<span> {{user?.name}}</span></p>
+          <p>Username:<span> {{user?.login}}</span></p>
+          <p>Joined on: <span class="badge rounded-pill bg-warning text-dark">{{user?.created_at|date}}</span></p>
+          <div class="follow">
+            <p><i class="fas fa-user"></i><span>{{user?.followers}}</span> Followers</p>
+            <p><i class="fas fa-user"></i><span>{{user?.following}}</span> Following</p>
           </div>
+        </div>
+      </div>
     </div>
     <div class="col-md-7">
       <div class="card">
@@ -48,10 +42,10 @@
         </ul>
       </div>            
     </div>  
-</div>
+  </div>
 </div>
 
-  <hr>
+<hr>
 
 <div class="container">
   <div class="row">

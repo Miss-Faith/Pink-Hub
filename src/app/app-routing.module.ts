@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountUserDetailsComponent } from './account-user-details/account-user-details.component';
 import { AccountRepoDetailsComponent } from './account-repo-details/account-repo-details.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
-  {path: 'users', component: AccountUserDetailsComponent},
-    {path: 'repo', component: AccountRepoDetailsComponent},
-    {path: '', redirectTo: '/users', pathMatch: 'full'},
+  { path: 'account', component: AccountComponent },
+  { path: 'account-user-details', component: AccountUserDetailsComponent},
+  { path: 'account-repo-details', component: AccountUserDetailsComponent},
+  { path: '', redirectTo:"/account", pathMatch:"full"},
 ];
 
 @NgModule({

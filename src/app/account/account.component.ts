@@ -22,7 +22,7 @@ export class AccountComponent implements OnInit {
   
   ngOnInit(): void {
     this.getUserDetails('Miss-Faith');
-    this.getRepoDetails('NMiss-Faith');
+    this.getRepoDetails('Miss-Faith');
   }
   
   //user details

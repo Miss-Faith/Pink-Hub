@@ -34,7 +34,7 @@ export class AccountService {
     }
 
   let userPromise = new Promise<void>((resolve, reject) => {
-    this.http.get<ApiUserResponse>('https://api.github.com/' + githubUsername + '/?access_token=' + environment.myApi).toPromise().then(response => {
+    this.http.get<ApiUserResponse>(environment.apiUrl + '/' + githubUsername + '?access_token=' + environment.apiKey).toPromise().then(response => {
       this.getUserDetails =response;
       resolve();
     },
@@ -57,8 +57,8 @@ export class AccountService {
       language: any;
     }
 
-  let repoPromise = new Promise<void>((resolve, reject) => {
-    this.http.get<ApiRepoResponse>('https://api.github.com/users/' + githubUsername + '/repos?order=created&sort=asc?access_token=' + environment.myApi).toPromise().then(response => {
+  const repoPromise = new Promise<void>((resolve, reject) => {
+    this.http.get<ApiRepoResponse>(environment.apiUrl + '/' + githubUsername + '/repos?order=created&sort=asc?access_token=' + environment.apiKey).toPromise().then(response => {
       this.getRepoDetails = response;
         resolve();
       }, error => {

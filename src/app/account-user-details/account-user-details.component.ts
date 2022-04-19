@@ -19,7 +19,7 @@ export class AccountUserDetailsComponent implements OnInit {
   constructor(public accountService: AccountService) { }
 
   //accessing form inputs
-  @ViewChild('f')
+  @ViewChild('repoForm')
   searchForm: NgForm;
 
   ngOnInit() {}

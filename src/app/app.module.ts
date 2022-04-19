@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
-import { AccountFormComponent } from './account-form/account-form.component';
+
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -17,7 +17,6 @@ import { NavbarComponent } from './navbar/navbar.component';
   declarations: [
     AppComponent,
     AccountComponent,
-    AccountFormComponent,
     AccountUserDetailsComponent,
     AccountRepoDetailsComponent,
     NavbarComponent
