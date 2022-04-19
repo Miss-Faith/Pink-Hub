@@ -8,15 +8,15 @@ import { User } from '../user-class/user';
   providedIn: 'root'
 })
 export class AccountService {
-  token: string = environment.accessToken;
+  // token: string = environment.myApi;
   repo: Repo;
   users: User;
   newRepo: any;
   searchRepo: any;
 
   constructor(private http:HttpClient) { 
-    this.repo = new Repo('', '', '', new Date());
-    this.users = new User('', '', '', 0, '', new Date(), 0, 0);
+    this.repo = new Repo('','','','', 0, '', new Date());
+    this.users = new User('','',0,'', '', new Date(), '', '',  '', '');
 }
   githubUser(searchName) {
     interface ApiResponse {
