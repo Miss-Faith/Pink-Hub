@@ -5,7 +5,8 @@ import { Repo } from '../repo-class/repo';
 @Component({
   selector: 'app-account-repo-details',
   templateUrl: './account-repo-details.component.html',
-  styleUrls: ['./account-repo-details.component.css']
+  styleUrls: ['./account-repo-details.component.css'],
+  providers: [AccountService]
 })
 export class AccountRepoDetailsComponent implements OnInit {
 
@@ -15,7 +16,7 @@ export class AccountRepoDetailsComponent implements OnInit {
 
   searchRepos() {
     this.searchRepo = '';
-    this.resultCount = 30;
+    this.resultCount = 0;
     this.getDataFunction();
 
   }
@@ -23,7 +24,7 @@ export class AccountRepoDetailsComponent implements OnInit {
     constructor(public gitRepoRequest: AccountService ) { }
 
   ngOnInit() {
-    this.resultCount = 5;
+    this.resultCount = 0;
     this.gitRepoRequest.gitRepos(this.searchRepo);
   }
 

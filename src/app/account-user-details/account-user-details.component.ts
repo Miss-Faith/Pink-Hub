@@ -9,15 +9,12 @@ import { AccountService } from '../account-service/account.service';
 })
 export class AccountUserDetailsComponent implements OnInit {
   public searchMe = 'Miss-Faith';
-    public githubUser: string;
+   public githubUser: string;
 
     users: User ;
-    repo: Repo;
+    repos: Repo;
     public searchRepo: string;
-    public resultCount = 12;
-  githubUserRequest: any;
-  userRepos: any;
-
+    public resultCount = 0;
 
     findUser(username) {
         this.githubUser = '';
@@ -26,7 +23,7 @@ export class AccountUserDetailsComponent implements OnInit {
     }
 
 
-  constructor() { }
+  constructor(public githubUserRequest: AccountService, public userRepos: AccountService) { }
 
   ngOnInit() {
     this.githubUserRequest.githubUser(this.searchMe);
@@ -38,6 +35,6 @@ export class AccountUserDetailsComponent implements OnInit {
 
   searchRepos() {
     this.searchRepo = '';
-    this.resultCount = 10;
+    this.resultCount = 0;
   }
 }
