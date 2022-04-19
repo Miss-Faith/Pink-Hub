@@ -110,4 +110,4 @@ export class AccountService {
 
 // function gitRepos(searchName: any) {
 //   throw new Error('Function not implemented.');
-// }
+}

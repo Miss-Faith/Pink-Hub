@@ -1,55 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Repo } from '../repo-class/repo';
 import { User } from '../user-class/user';
 import { AccountService } from '../account-service/account.service';
+import { NgForm } from '@angular/forms';
+
+
 @Component({
   selector: 'app-account-user-details',
   templateUrl: './account-user-details.component.html',
   styleUrls: ['./account-user-details.component.css']
 })
 export class AccountUserDetailsComponent implements OnInit {
-  public searchMe = 'Miss-Faith';
-  public githubUser: string;
-
+  
   user: User;
+  searchText!: string;
   repo: Repo;
-
-
-    findUser(username) {
-      this.githubUser = '';
-      this.ngOnInit();
-    }
-
 
   constructor(public accountService: AccountService) { }
 
-  ngOnInit() {
-    this.githubUserRequest.githubUser(this.searchMe);
-    this.userRepos.gitUserRepos(this.searchMe);
+  //accessing form inputs
+  @ViewChild('f')
+  searchForm: NgForm;
+
+  ngOnInit() {}
+  
    
    //user details
-   getUserDetails(githubUsername: string) {
-    this.repositoryUserService.getUserResponse(githubUsername).then(
+   searchGithubuser() {
+    this.searchText = this.searchForm.value.search;
+    this.accountService.githubUser(this.searchText).then(
       (response) => {
-        this.user = this.repositoryUserService.getUserDetails;
+        this.user = this.accountService.getUserDetails;
       },
       (error) => {
         console.log(error);
       }
     ); 
   }
-
-
-  //user repositories
-  getUserRepositories(githubUsername: string) {
-    this.repositoryUserService.getRepositoryResponse(githubUsername).then(
-      (response) => {
-        this.repositories = this.repositoryUserService.getRepositoryDetails;
-        console.log(this.repositories);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
 }
+
+  // //user repositories
+  // getRepoDetails() {
+  //   this.accountService.gitUserRepos(this.searchText).then(
+  //     (response) => {
+  //       this.repo = this.accountService.getRepoDetails;
+  //       console.log(this.repo);
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+//   // }
+// }

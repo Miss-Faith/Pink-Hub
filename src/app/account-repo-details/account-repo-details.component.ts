@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Tracing } from 'trace_events';
 import { AccountService } from '../account-service/account.service';
 import { Repo } from '../repo-class/repo';
 
@@ -9,28 +11,28 @@ import { Repo } from '../repo-class/repo';
   providers: [AccountService]
 })
 export class AccountRepoDetailsComponent implements OnInit {
+  @ViewChild('f') searchForm!: NgForm;
+  
+  repo: any;
+  searchText:string;
+  reposUserService: any;
 
-  repo: Repo;
-  public searchRepo: string;
-  public resultCount = 12;
+    constructor(public accountservice: AccountService ) { }
 
-  searchRepos() {
-    this.searchRepo = '';
-    this.resultCount = 0;
-    this.getDataFunction();
-
-  }
-
-    constructor(public gitRepoRequest: AccountService ) { }
-
-  ngOnInit() {
-    this.resultCount = 0;
-    this.gitRepoRequest.gitRepos(this.searchRepo);
-  }
+  ngOnInit() {}
 
 
-  getDataFunction() {
-    this.gitRepoRequest.gitRepos(this.searchRepo);
+  //search for github repositories
+  searchGithubRepos() {
+    this.searchText = this.searchForm.value.value.search;
+    this.accountservice.gitUserRepos(this.searchText).then(
+      (response) => {
+        this.repo = this.accountservice.getRepoDetails;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
 

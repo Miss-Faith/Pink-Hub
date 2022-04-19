@@ -2,7 +2,7 @@
   
   <div class="row ">
   <div class="col-md-9 text-center">
-    <app-account-form (getName)='searchRepos()'></app-account-form>
+    <app-account-form (getName)='searchGithubRepos()'></app-account-form>
   </div>
 </div>
 <div class="row">
@@ -11,16 +11,16 @@
       <div class="table">
         <table class="table">
           <tbody>
-           <tr *ngFor=" let repository of gitRepoRequest.searchRepo" >
+           <tr *ngFor=" let repo of repo" >
             <td>
               <h4>
-                <a style="text-align: center" href="{{repository.html_url}} " >{{repository.name}}</a>
+                <a style="text-align: center" href="{{repo.html_url}} " >{{repo.name}}</a>
               </h4>
               <p > Repository Owner:
-                <a href="{{repository.owner.html_url}}">{{repository.owner.login}}</a>
+                <a href="{{repo.owner.html_url}}">{{repo.owner.login}}</a>
               </p>
-              <p>Date Created : {{repository.created_at|date}}</p>
-              <p>Description : {{repository.description}}</p>
+              <p>Date Created : {{repo.created_at|date}}</p>
+              <p>Description : {{repo.description}}</p>
             </td>
           </tr>
           </tbody>

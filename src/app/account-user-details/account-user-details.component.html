@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row ">
     <div class="col-md-12">
-      <app-account-form (getName)='findUser($event)'></app-account-form>
+      <app-account-form (getName)='searchGithubuser()'></app-account-form>
     </div>
   </div>
 
@@ -60,7 +60,7 @@
       <div class="table table-striped">
         <table class="table">
           <tbody>
-          <tr *ngFor='let repo of userRepos.newRepo'>
+          <tr>
             <td>
                 <a href="{{repo.html_url}}" target="_blank" >{{repo.name}}</a>
 
