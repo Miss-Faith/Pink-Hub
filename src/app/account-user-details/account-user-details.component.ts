@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Repo } from '../repo-class/repo';
 import { User } from '../user-class/user';
-
+import { AccountService } from '../account-service/account.service';
 @Component({
   selector: 'app-account-user-details',
   templateUrl: './account-user-details.component.html',
@@ -15,6 +15,8 @@ export class AccountUserDetailsComponent implements OnInit {
     repo: Repo;
     public searchRepo: string;
     public resultCount = 12;
+  githubUserRequest: any;
+  userRepos: any;
 
 
     findUser(username) {
@@ -27,16 +29,15 @@ export class AccountUserDetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-      this.githubUserRequest.githubUser(this.searchMe);
-      this.users = this.githubUserRequest.users;
-      this.userRepos.gitUserRepos(this.searchMe);
-      console.log(this.userRepos);
+    this.githubUserRequest.githubUser(this.searchMe);
+    this.users = this.githubUserRequest.users;
+    this.userRepos.gitUserRepos(this.searchMe);
+    console.log(this.userRepos);
   }
 
 
-    searchRepos() {
-        this.searchRepo = '';
-        this.resultCount = 10;
-
-    }
+  searchRepos() {
+    this.searchRepo = '';
+    this.resultCount = 10;
+  }
 }
