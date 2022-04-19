@@ -10,19 +10,18 @@ import {Search} from '../search';
   styleUrls: ['./account-form.component.css']
 })
 export class AccountFormComponent implements OnInit {
-  userData: User;
-  myData: {};
-  userRepoData: User[];
-  searchterm: string = '';
+  // userData: User;
+  // myData: {};
+  // userRepoData: User[];
+  // searchterm: string = '';
 
   searchInfo = new Search('');
   @Output() getName = new EventEmitter<Search>();
 
-  getUserData(){
-    this.accountService.getUserData(this.searchterm).then((data) => {
-      this.userData = data;
-      this.router.navigate(['/searchUser', this.userData.login]);
-    });
+  getUser(data){
+    this.getName.emit(data.value.find);
+    console.log(data.value.find)
+    data.reset();
 }
 
   constructor(private accountService: AccountService, private router: Router) { }

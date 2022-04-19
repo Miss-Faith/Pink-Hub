@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AccountService } from './account-service/account.service';
 import { AccountUserDetailsComponent } from './account-user-details/account-user-details.component';
 import { AccountRepoDetailsComponent } from './account-repo-details/account-repo-details.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AccountRepoDetailsComponent } from './account-repo-details/account-repo
     AccountComponent,
     AccountFormComponent,
     AccountUserDetailsComponent,
-    AccountRepoDetailsComponent
+    AccountRepoDetailsComponent,
+    NavbarComponent
     
   ],
   imports: [

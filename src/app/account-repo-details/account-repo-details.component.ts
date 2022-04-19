@@ -15,7 +15,7 @@ export class AccountRepoDetailsComponent implements OnInit {
 
   searchRepos() {
     this.searchRepo = '';
-    this.resultCount = 10;
+    this.resultCount = 30;
     this.getDataFunction();
 
   }

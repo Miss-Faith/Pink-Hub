@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <h2 class="text-center">Search a User</h2>
   <hr>
-  <form  #accountForm='ngForm' (ngSubmit)="getUserData()">
+  <form  #accountForm='ngForm' (ngSubmit)="getUser(accountForm)">
     <div class="form-group">
 
       <label for="searchterm">User Name</label>
