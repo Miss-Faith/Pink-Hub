@@ -10,19 +10,19 @@ import { AccountService } from '../account-service/account.service';
 })
 
 export class AccountRepoDetailsComponent implements OnInit {
-  @ViewChild('repoForm') searchRepoForm: NgForm;
+  @ViewChild('repoForm') searchForm: NgForm;
   
   repo: any;
   searchText:string;
   
     constructor(public accountservice: AccountService ) { }
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 
 
   //search for github repositories
   searchGithubRepos() {
-    this.searchText = this.searchRepoForm.value.value.search;
+    this.searchText = this.searchForm.value.search;
     this.accountservice.gitUserRepos(this.searchText).then(
       (response) => {
         this.repo = this.accountservice.getRepoDetails;

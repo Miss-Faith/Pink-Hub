@@ -16,7 +16,7 @@
     </div>
     <div class="col-md-7">
       <div class="card">
-        <ul class="list-group list-group-flush my-details">
+        <ul class="">
           <li class="list-group-item">Name: <span>{{user?.name}}</span></li>
           <li class="list-group-item">Address: <span>{{user?.location}}</span></li>
           <li class="list-group-item">Public repos: <span class="badge rounded-pill bg-warning text-dark">{{user?.public_repos}}</span></li>
@@ -24,14 +24,14 @@
       </div>
       <div class="card">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">About me</li>
+          <li class="list-group-item">Bio</li>
           <li class="list-group-item">
             <p>{{user?.bio}}</p>
           </li>
         </ul>
       </div>
       <div class="card">
-        <ul class="list-group list-group-flush">
+        <ul class="">
           <li class="list-group-item">Github</li>
           <li class="list-group-item">
             <div>
@@ -45,7 +45,7 @@
   </div>
 </div>
 
-<hr>
+<!-- <hr>
 
 <div class="container">
   <div class="row">
@@ -56,7 +56,7 @@
           <tbody>
           <tr>
             <td>
-                <a href="{{repo.html_url}}" target="_blank" >{{repo.name}}</a>
+                <a href="{{repo?.html_url}}" target="_blank" >{{repo?.name}}</a>
 
                 <br>
               <p class="desc">Description: {{repo.description}}</p>
@@ -69,4 +69,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

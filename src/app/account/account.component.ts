@@ -30,6 +30,7 @@ export class AccountComponent implements OnInit {
     this.accountService.githubUser(githubUsername).then(
       (response) => {
         this.user = this.accountService.getUserDetails;
+        console.log(this.user);
       },
       (error) => {
         console.log(error);

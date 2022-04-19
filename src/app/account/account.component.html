@@ -1,20 +1,20 @@
 <div class="container">
   <div class="row">
-      <div class="col-md-5">
-          <div class="card">
-              <img class="card-img-top" [src]="user?.avatar_url" alt="My Image">
-              <div class="card-body text-center">
-                <p class="card-text">Name:<span> {{user?.name}}</span></p>
-                <p>Username:<span> {{user?.login}}</span></p>
-                <p>Joined on: <span class="badge rounded-pill bg-warning text-dark">{{user?.created_at|date}}</span></p>
-                <div class="follow">
-                  <p><i class="fas fa-user"></i><span>{{user?.followers}}</span> Followers</p>
-                  <p><i class="fas fa-user"></i><span>{{user?.following}}</span> Following</p>
-                </div>
-              </div>
-            </div>
+    <div class="col-md-5">
+      <div class="card">
+        <img class="card-img-top" [src]="user?.avatar_url" alt="My Image">
+        <div class="card-body text-center">
+          <p class="card-text">Name:<span> {{user?.name}}</span></p>
+          <p>Username:<span> {{user?.login}}</span></p>
+          <p>Joined on: <span class="badge rounded-pill bg-warning text-dark">{{user?.created_at|date}}</span></p>
+          <div class="follow">
+            <p><i class="fas fa-user"></i><span>{{user?.followers}}</span> Followers</p>
+            <p><i class="fas fa-user"></i><span>{{user?.following}}</span> Following</p>
+          </div>
+        </div>
       </div>
-      <div class="col-md-7">
+    </div>
+      <div class="col-6">
         <div class="card">
           <ul class="list-group list-group-flush my-details">
             <li class="list-group-item">Name: <span>{{user?.name}}</span></li>
@@ -24,7 +24,7 @@
         </div>
         <div class="card">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">About me</li>
+            <li class="list-group-item">Bio</li>
             <li class="list-group-item">
               <p>{{user?.bio}}</p>
             </li>
@@ -35,8 +35,7 @@
             <li class="list-group-item">Github</li>
             <li class="list-group-item">
               <div>
-                <small><a class="btn btn-sm" href="https://github.com/{{ user?.login }}"
-                    target="_blank" rel="noopener noreferrer">View Github <i class="fa fa-arrow-right"></i></a></small>
+                <small><a class="btn btn-sm" href="https://github.com/{{ user?.login }}" target="_blank" rel="noopener noreferrer">View Github <i class="fa fa-arrow-right"></i></a></small>
               </div>
             </li>
           </ul>
@@ -45,22 +44,22 @@
   </div>
 </div>
 
-<div class="container repo" id="repo">
+<div class="container">
 <div class="col-md-12">
-  <h2>My repositories</h2>
+  <h2>Repositories</h2>
 </div>
 <div class="col-md-12" *ngFor="let rep of repo; let i=index">
   <div class="card card-repo">
     <span class="float-right"><i appStarrepo title="Star repo" class="fa fa-star"></i></span>
     <div class="card-body text-center">
-      <h4 class="card-title heading">{{repo.name}}</h4>
-      <p class="card-text">{{repo.description}}</p>
+      <h4 class="card-title heading">{{rep.name}}</h4>
+      <p class="card-text">{{rep.description}}</p>
     </div>
     <div class="card-body text-center">
       <p class="card-text"><strong>Created on: <span class="badge rounded-pill bg-warning text-dark">{{
-        repo.created_at|date}}</span></strong></p>
-        <p>Language: {{repo.language}}</p>
-        <a href="{{repo.html_url }}" target="_blank" class="card-link color-primary">View repo <i class="fa fa-arrow-right"></i></a>
+        rep.created_at|date}}</span></strong></p>
+        <p>Languages: {{rep.language}}</p>
+        <a href="{{rep.html_url }}" target="_blank" class="card-link color-primary">View repo <i class="fa fa-arrow-right"></i></a>
     </div>
   </div>
 </div>
