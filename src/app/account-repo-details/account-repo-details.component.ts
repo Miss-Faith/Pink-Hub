@@ -10,9 +10,9 @@ import { User } from '../user-class/user';
 })
 export class AccountRepoDetailsComponent implements OnInit {
 
-  repository: Repository;
-    public searchRepo: string;
-    public resultCount = 12;
+  repo: Repo;
+  public searchRepo: string;
+  public resultCount = 12;
 
     searchRepos() {
         this.searchRepo = '';
@@ -21,7 +21,7 @@ export class AccountRepoDetailsComponent implements OnInit {
 
     }
 
-    constructor(public gitRepoRequest: SearchRequestService ) { }
+    constructor(public gitRepoRequest: AccountService ) { }
 
   ngOnInit() {
         this.resultCount = 5;

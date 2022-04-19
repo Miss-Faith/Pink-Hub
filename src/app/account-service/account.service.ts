@@ -9,26 +9,102 @@ import { User } from '../user-class/user';
 })
 export class AccountService {
   token: string = environment.accessToken;
-  
-  constructor(private http:HttpClient) { }
+  repo: Repo;
+  users: User;
+  newRepo: any;
+  searchRepo: any;
 
-  getUserData(username: string) {
-    return this.http
-      .get<User>(
-        `https://api.github.com/users/${username}`
-      ).toPromise();
+  constructor(private http:HttpClient) { 
+    this.repo = new Repo('', '', '', new Date());
+    this.users = new User('', '', '', 0, '', new Date(), 0, 0);
+}
+  githubUser(searchName) {
+    interface ApiResponse {
+      name: string;
+      html_url: string;
+      description: string;
+      created_at: Date;
+      login: string;
+      public_repos: number;
+      followers: number;
+      following: number;
+      avatar_url: string;
+    }
+
+    const promise = new Promise<void>((resolve) => {
+      this.http.get<ApiResponse>('https://api.github.com/users/' + searchName + '?access_token=' + environment.myApi).toPromise().then(getResponse => {
+        this.users.name = getResponse.name;
+        this.users.html_url = getResponse.html_url;
+        this.users.login = getResponse.login;
+        this.users.avatar_url = getResponse.avatar_url;
+        this.users.public_repos = getResponse.public_repos;
+        this.users.created_at = getResponse.created_at;
+        this.users.followers = getResponse.followers;
+        this.users.following = getResponse.following;
+        resolve();
+      },);
+    });
+    return promise;
   }
 
-  getUserRepoData(username: string) {
-    return this.http
-      .get<Repo[]>(
-        ` https://api.github.com/users/${username}/repos?order=created&sort=asc?access_token=${this.token}`
-      ).toPromise();
+  gitUserRepos(searchMe) {
+      interface ApiResponse {
+          name: string;
+          description: string;
+          created_at: Date;
+      }
+
+      const myPromise = new Promise<void>((resolve, reject) => {
+        this.http.get<ApiResponse>('https://api.github.com/users/' + searchMe + '/repos?order=created&sort=asc?access_token=' + environment.myApi).toPromise().then(getRepoResponse => {
+          this.newRepo = getRepoResponse;
+          resolve();
+        }, error => {
+          reject(error);
+        });
+      });
+      return myPromise;
   }
 
-  getRepoData(searchterm: string) {
-    return this.http
-      .get<Repo[]>(`https://api.github.com/search/repositories?q=${searchterm}`
-      ).toPromise();
+
+  gitRepos(searchName) {
+    interface ApiResponse {
+      items: any;
+    }
+
+    const promise = new Promise<void>((resolve, reject) => {
+      this.http.get<ApiResponse>('https://api.github.com/search/repositories?q=' + searchName + ' &per_page=10 ' + environment.myApi).toPromise().then(getRepoResponse => {
+        this.searchRepo = getRepoResponse.items;
+
+      resolve();
+      }, error => {
+        this.searchRepo = 'error';
+        reject(error);
+      });
+    });
+    return promise;
   }
+}
+
+function githubUser(searchName: any) {
+  throw new Error('Function not implemented.');
+}
+
+
+function searchName(searchName: any) {
+  throw new Error('Function not implemented.');
+}
+
+
+function gitUserRepos(searchMe: any) {
+  throw new Error('Function not implemented.');
+}
+
+
+function searchMe(searchMe: any) {
+  throw new Error('Function not implemented.');
+}
+
+
+function gitRepos(searchName: any) {
+  throw new Error('Function not implemented.');
 }
