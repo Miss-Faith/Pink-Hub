@@ -1,12 +1,12 @@
-<div class="container">
+<div class="container"> 
   <div class="row">
     <div class="col-md-6">
-      <div>
+      <div>  
         <form (ngSubmit)="searchGithubRepos()" id="search-form" #repoForm="ngForm">
           <input type="text" class="form-control" ngModel name="search" placeholder="Enter repository name you wish to search for..." required #search="ngModel">
           <p class="text-danger error block" *ngIf="!search.valid && search.touched"><small>Fill in field!</small></p>
           <div class="d-grid mt-2">
-            <button type="submit" class="btn btn-block btn-search" [disabled]="!repoForm.valid">Search Repositories</button>
+            <button appChangecolor type="submit" class="btn btn-block btn-search" [disabled]="!repoForm.valid">Search Repositories</button>
           </div>
         </form>
       </div>

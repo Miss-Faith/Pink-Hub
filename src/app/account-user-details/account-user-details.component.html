@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-6">
       <form (ngSubmit)="searchGithubUser() " id="search-form" #userForm="ngForm">
         <input type="text" class="form-control search" ngModel name="search" placeholder="Enter github username to search..." required #search="ngModel">
         <p class="text-danger error-block" *ngIf="!search.valid && search.touched"><small>Fill in field!</small></p>
         <div class="d-grid mt-2">
-          <button type="submit" class="btn btn-block btn-search" [disabled]="!userForm.valid">Search User</button>
+          <button appChangecolor type="submit" class="btn btn-block btn-search" [disabled]="!userForm.valid">Search User</button>
         </div>
     </form>
     </div>

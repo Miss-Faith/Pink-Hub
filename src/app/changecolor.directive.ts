@@ -4,7 +4,7 @@ import { Directive, ElementRef } from '@angular/core';
   selector: '[appChangecolor]'
 })
 export class ChangecolorDirective {
-  colors = ['red', 'blue', 'green', 'yellow'];
+  colors = ['#f5a4c5','black','rgba(235,183,183)'];
 
   constructor(elem: ElementRef) {
     this.changeColor(elem);
