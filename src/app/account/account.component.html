@@ -2,19 +2,19 @@
   <br>
   <br>
   <div class="row d-flex justify-content-center">
-    <div class="col-4">
+    <div class="col-sm-5 col-md-4 col-lg-4">
       <div class="card text-center">
         <img class="card-img-top rounded-circle" [src]="user?.avatar_url" alt="My Image">
         <div class="card-body text-center list-group">
           <div class="list-group-item userdetails">
             <h2> {{user?.login}}</h2>
-          <p>Joined on: <span class="badge rounded-pill bg-warning text-dark">{{user?.created_at|date}}</span></p>
-          <p>Public repos: <span class="badge rounded-pill bg-warning text-dark">{{user?.public_repos}}</span></p>
+          <p>Joined on: <span class="badge rounded-pill  text-dark">{{user?.created_at|date}}</span></p>
+          <p>Public repos: <span class="badge rounded-pill  text-dark">{{user?.public_repos}}</span></p>
           </div>
         </div>
       </div>
     </div>
-      <div class="col-5 ">
+      <div class="col-sm-5">
         <div class="card text-center ">
           <h4 class="card-title">GitHub Profile</h4>
           <ul class="list-group">
@@ -45,7 +45,7 @@
 <div class="container-fluid">
   <h2>Repositories</h2>
   <div class="row">
-    <div class="col-3" *ngFor="let rep of repo; let i=index" >
+    <div class="col-sm-5 col-md-4 col-lg-3" *ngFor="let rep of repo; let i=index" >
       <div class="card text-center repo-card">
         <span class="float-right"><i appStarrepo title="Star repo" class="fa fa-star"></i></span>
         <div class="card-body text-center">
@@ -54,10 +54,11 @@
         <div>
           <div class="card-body list-group">
             <div class="list-group-item repodetails">
-              <p class="card-text">{{rep.description}}</p>
-              <p class="card-text"><strong>Created on: <span class="badge rounded-pill bg-warning text-dark">{{rep.created_at|date}}</span></strong></p>
+              <p class="card-text"><strong>Created on: <span class="badge rounded-pill text-dark">{{rep.created_at|date}}</span></strong></p>
               <p>Languages: {{rep.language}}</p>
               <a href="{{rep.html_url }}" target="_blank" class="card-link color-primary">View repo <i class="fa fa-arrow-right"></i></a>
+              <br>
+              <p class="card-text description">{{rep.description}}</p>
             </div>
           </div>
         </div>
