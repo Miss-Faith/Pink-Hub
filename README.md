@@ -1,7 +1,7 @@
 # [Pink Hub](https://miss-faith.github.io/Pink-Hub/)
 #### By [Faith Mwangi](https://github.com/miss-faith)
 ### Description
-A landing page that allows users to search github users and github repositories.
+A landing page that allows users to search Github users and Github repositories.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
 
