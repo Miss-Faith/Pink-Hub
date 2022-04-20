@@ -13,42 +13,43 @@ import { NgForm } from '@angular/forms';
 export class AccountUserDetailsComponent implements OnInit {
   
   user: User;
-  searchText!: string;
+  searchText: string;
   repo: Repo;
+  displayUserDetailContainer = false;
 
   constructor(public accountService: AccountService) { }
 
   //accessing form inputs
-  @ViewChild('repoForm')
+  @ViewChild('userForm')
   searchForm: NgForm;
 
   ngOnInit() {}
   
    
    //user details
-   searchGithubuser() {
+   searchGithubUser() {
     this.searchText = this.searchForm.value.search;
     this.accountService.githubUser(this.searchText).then(
       (response) => {
         this.user = this.accountService.getUserDetails;
+        this.displayUserDetailContainer = true;
       },
       (error) => {
         console.log(error);
       }
     ); 
   }
+//user repositories
+    getRepoDetails(githubUsername: string) {
+      this.accountService.gitUserRepos(githubUsername).then(
+        (response) => {
+        this.repo = this.accountService.getRepoDetails;
+        console.log(this.repo);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
-  // //user repositories
-  // getRepoDetails() {
-  //   this.accountService.gitUserRepos(this.searchText).then(
-  //     (response) => {
-  //       this.repo = this.accountService.getRepoDetails;
-  //       console.log(this.repo);
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
-//   // }
-// }
+}
