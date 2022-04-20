@@ -12,6 +12,7 @@ import { AccountService } from './account-service/account.service';
 import { AccountUserDetailsComponent } from './account-user-details/account-user-details.component';
 import { AccountRepoDetailsComponent } from './account-repo-details/account-repo-details.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ChangecolorDirective } from './changecolor.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     AccountComponent,
     AccountUserDetailsComponent,
     AccountRepoDetailsComponent,
-    NavbarComponent
+    NavbarComponent,
+    ChangecolorDirective
     
   ],
   imports: [
