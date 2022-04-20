@@ -13,6 +13,7 @@ import { AccountUserDetailsComponent } from './account-user-details/account-user
 import { AccountRepoDetailsComponent } from './account-repo-details/account-repo-details.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ChangecolorDirective } from './changecolor.directive';
+import { WordcountPipe } from './wordcount.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ChangecolorDirective } from './changecolor.directive';
     AccountUserDetailsComponent,
     AccountRepoDetailsComponent,
     NavbarComponent,
-    ChangecolorDirective
+    ChangecolorDirective,
+    WordcountPipe
     
   ],
   imports: [
