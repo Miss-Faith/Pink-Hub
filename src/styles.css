@@ -1,1 +1,49 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
+body {
+  background-image: url('/src/assets/images/Image2.jpg');
+  background-color: #940242;
+  color: #940242;
+}
+
+.row {
+  width: 90%;
+}
+
+.border {
+  border-color: rgba(235,183,183);
+}
+
+.card {
+  background-color: rgba(235,183,183,1); 
+  border-radius: 30px;
+  border-width: 3px;
+}
+
+.repo-card {
+  margin-bottom: 30px;
+ }
+
+.repo-title {
+  height: 20px;
+ }
+.list-group-item {
+  background-color: #940242; 
+}
+
+.repodetails {
+  margin-left: 7px; 
+  margin-right: -9px; 
+  height: 300px;
+}
+
+.userdetails {
+  margin-left: 7px; 
+  margin-right: -9px; 
+}
+
+.card-img-top {
+  height: 40vh;
+  width: auto;
+  margin: auto;
+}
