@@ -1,13 +1,18 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Great+Vibes&family=Satisfy&display=swap');
 
 body {
   background-image: url('/src/assets/images/Image2.jpg');
   background-color: #940242;
   color: #940242;
+  font-family: 'Satisfy', cursive;
+  font-size: 2.2vh;
+  font-weight: 500;
 }
 
 .row {
   width: 90%;
+  margin-left: 5%;
 }
 
 .border {
@@ -29,6 +34,7 @@ body {
  }
 .list-group-item {
   background-color: #940242; 
+  color: bisque; 
 }
 
 .repodetails {
@@ -43,7 +49,11 @@ body {
 }
 
 .card-img-top {
-  height: 40vh;
+  height: 30vh;
   width: auto;
   margin: auto;
+}
+
+a {
+  color: bisque;
 }
