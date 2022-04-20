@@ -14,8 +14,10 @@ export class AccountUserDetailsComponent implements OnInit {
   
   user: User;
   searchText: string;
-  repo: Repo;
+  repo: any;
   displayUserDetailContainer = false;
+  displayGithubUserErrorNotFound = false;
+  displayUserErrorMessage: boolean;
 
   constructor(public accountService: AccountService) { }
 
@@ -40,11 +42,13 @@ export class AccountUserDetailsComponent implements OnInit {
     ); 
   }
 //user repositories
-    getRepoDetails(githubUsername: string) {
-      this.accountService.gitUserRepos(githubUsername).then(
-        (response) => {
-        this.repo = this.accountService.getRepoDetails;
-        console.log(this.repo);
+getRepoDetails(searchText: string) {
+  this.searchText = this.searchForm.value.search;
+  this.accountService.gitUserRepos(searchText).then(
+    (response) => {
+      this.repo = this.accountService.getRepoDetails;
+      this.displayUserDetailContainer = true;
+      console.log(this.repo);
     },
     (error) => {
       console.log(error);

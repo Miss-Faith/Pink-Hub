@@ -14,6 +14,8 @@ export class AccountRepoDetailsComponent implements OnInit {
   
   repo: any;
   searchText:string;
+  displayUserErrorMessage = false;
+  displayRepoInformation = false;
   
     constructor(public accountservice: AccountService ) { }
 
@@ -26,8 +28,10 @@ export class AccountRepoDetailsComponent implements OnInit {
     this.accountservice.gitUserRepos(this.searchText).then(
       (response) => {
         this.repo = this.accountservice.getRepoDetails;
+        this.displayRepoInformation = true;
       },
       (error) => {
+        this.displayUserErrorMessage = true;
         console.log(error);
       }
     );

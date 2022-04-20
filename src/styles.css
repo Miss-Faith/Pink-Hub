@@ -10,6 +10,12 @@ body {
   font-weight: 500;
 }
 
+h2 {
+  color: black;
+  text-align: center;
+  font-weight: 600;
+}
+
 .row {
   width: 90%;
   margin-left: 5%;
